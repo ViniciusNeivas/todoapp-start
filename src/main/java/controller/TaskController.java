@@ -14,7 +14,8 @@ import util.ConnectionFactory;
 public class TaskController {
     
     public void save(Task task){
-        String sql = "INSERT INTO task (idProject,"
+        String sql = "INSERT INTO tasks ("
+                + "idProject,"
                 + "name,"
                 + "description,"
                 + "completed,"
@@ -38,16 +39,15 @@ public class TaskController {
             statement.setDate(7, new Date(task.getCreatedAt().getTime()));
             statement.setDate(8, new Date(task.getUpdatedAt().getTime()));
             statement.execute();
-        } catch(Exception ex) {
-            throw new RuntimeException("Erro ao salvar a tarefa " 
-                    + ex.getMessage(), ex);
+        } catch(SQLException ex) { //Exception
+            throw new RuntimeException("Erro ao salvar a tarefa ", ex);
         } finally {
             ConnectionFactory.closeConnection(connection, statement);
-          
         }
     }
     
     public void update(Task task){
+        
         String sql = "UPDATE tasks SET " 
                 + "idProject = ?, "
                 + "name = ?, "
@@ -56,7 +56,7 @@ public class TaskController {
                 + "completed = ?, " 
                 + "deadline = ?, "
                 + "createdAt = ?, "
-                + "updatedAt = ?, "
+                + "updatedAt = ? "
                 + "WHERE id = ?";
         
         Connection connection = null;
@@ -82,13 +82,16 @@ public class TaskController {
             
             //Executa a query
             statement.execute();
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             throw new RuntimeException("Erro ao atualizar a tarefa " 
                     + ex.getMessage(),ex);
         } 
+//            finally {
+//            ConnectionFactory.closeConnection(connection, statement);
+//        }
     }
     
-    public void removeById(int taskId) throws SQLException{
+    public void removeById(int taskId){
         String sql = "DELETE FROM tasks WHERE id = ?";
         
         Connection connection = null;
@@ -106,9 +109,10 @@ public class TaskController {
             
             //Executando a query
             statement.execute();
-        } catch (Exception ex){
+            
+        } catch (Exception ex){ //Exception
             throw new RuntimeException("Erro ao deletar a tarefa " 
-                    + ex.getMessage());
+                    + ex.getMessage(),ex);
         } finally {
             ConnectionFactory.closeConnection(connection, statement);
         }
@@ -154,7 +158,7 @@ public class TaskController {
             }
         } catch (Exception ex) {
              throw new RuntimeException("Erro ao inserir  a tarefa " 
-                    + ex.getMessage());
+                    + ex.getMessage(), ex);
         } finally {
              ConnectionFactory.closeConnection(connection, statement, resultSet);
         }

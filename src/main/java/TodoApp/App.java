@@ -3,13 +3,106 @@
  */
 package TodoApp;
 
-import java.sql.Connection;
-import util.ConnectionFactory;
+import controller.ProjectController;
+import controller.TaskController;
+import java.util.Date;
+import java.util.List;
+import model.Project;
+import model.Task;
 
 public class App {
+
     public static void main(String[] args) {
-        Connection c = ConnectionFactory.getConnection();
+
+//    "TESTES"  
+
         
-        ConnectionFactory.closeConnection(c);
+//    SALVA PROJETOS
+
+//    ProjectController projectController = new ProjectController();
+//    Project project = new Project();
+//    project.setName(" Projeto Terceiro teste");
+//    project.setDescription("Description 1");
+//    projectController.save(project);
+
+
+
+//    UPDATE
+
+//    ProjectController projectController = new ProjectController();
+//    Project project = new Project();
+//    project.setId(2);
+//    project.setName("Novo nome do projeto");
+//    project.setDescription("Description 1");
+//    projectController.update(project);
+      
+
+
+//    LISTA PROJETOS
+//
+//    List<Project> projects = projectController.getAll();
+//    System.out.println("Total de projetos = " + projects.size());
+
+
+
+//    REMOVE PROJETOS  
+//
+//    ProjectController projectController = new ProjectController();
+//    projectController.removeById(1);
+
+
+
+//--------------------------------------------------------------------------
+
+
+
+//    SALVA TASKS  
+
+//    TaskController taskController = new TaskController();;
+//    Task task = new Task();
+//    task.setIdProject(2);
+//    task.setName("Criar as telas de aplicação");
+//    task.setDescription("Devem ser criadas telas para os cadastros");
+//    task.setNotes("Sem notas");
+//    task.setIsCompleted(false);
+//    task.setDeadline(new Date());
+//    taskController.save(task);
+
+
+
+//    ATUALIZA TASKS  
+
+//    TaskController taskController = new TaskController();
+//    Task task = new Task();
+//    task.setIdProject(2);
+//    task.setId(2);
+//    task.setName("Alterar telas da aplicação");
+//    task.setDescription("Devem ser criadas telas para os cadastros");
+//    task.setNotes("Sem notas");
+//    task.setIsCompleted(false);
+//    task.setDeadline(new Date());
+//    taskController.update(task);
+
+
+
+//    LISTA TASKS  
+
+//    TaskController taskController = new TaskController();
+//    List<Task> tasks = taskController.getAll(2);
+//    System.out.println("Total de tarefas = " + tasks.size());
+
+
+
+//    REMOVE TASK  
+//
+//    TaskController taskController = new TaskController();
+//    taskController.removeById(3);
+
+
+
+    }
+
+    Object getGreeting() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
