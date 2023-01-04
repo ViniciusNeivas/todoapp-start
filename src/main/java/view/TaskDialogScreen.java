@@ -175,13 +175,13 @@ public class TaskDialogScreen extends javax.swing.JDialog {
         // TODO add your handling code here:
         try {
             Task task = new Task();
-            task.setIdProject(2);
+            task.setIdProject(project.getId());
             task.setName(jTextFieldName.getText());
             task.setDescription(jTextAreaDescription.getText());
             task.setNotes(jTextAreaNotes.getText());
             task.setIsCompleted(false);
             
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/y");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date deadline = null;
             
             deadline = dateFormat.parse(jFormattedTextFieldDeadline.getText());
